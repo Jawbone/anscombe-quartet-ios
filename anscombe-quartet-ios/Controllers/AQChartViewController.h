@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AQChartViewController.h
 //  anscombe-quartet-ios
 //
 //  Created by Terry Worona on 6/9/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface AQChartViewController : UITableViewController
 
 @end

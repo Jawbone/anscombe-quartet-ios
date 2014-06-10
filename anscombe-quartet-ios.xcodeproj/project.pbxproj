@@ -12,33 +12,10 @@
 		9B769B5F1946C4EF00581A07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B769B5E1946C4EF00581A07 /* UIKit.framework */; };
 		9B769B651946C4EF00581A07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B769B631946C4EF00581A07 /* InfoPlist.strings */; };
 		9B769B671946C4EF00581A07 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B769B661946C4EF00581A07 /* main.m */; };
-		9B769B6B1946C4EF00581A07 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B769B6A1946C4EF00581A07 /* AppDelegate.m */; };
-		9B769B6E1946C4EF00581A07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B769B6C1946C4EF00581A07 /* Main.storyboard */; };
-		9B769B711946C4EF00581A07 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B769B701946C4EF00581A07 /* ViewController.m */; };
 		9B769B731946C4EF00581A07 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B769B721946C4EF00581A07 /* Images.xcassets */; };
-		9B769B7A1946C4EF00581A07 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B769B791946C4EF00581A07 /* XCTest.framework */; };
-		9B769B7B1946C4EF00581A07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B769B5A1946C4EF00581A07 /* Foundation.framework */; };
-		9B769B7C1946C4EF00581A07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B769B5E1946C4EF00581A07 /* UIKit.framework */; };
-		9B769B841946C4EF00581A07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B769B821946C4EF00581A07 /* InfoPlist.strings */; };
-		9B769B861946C4EF00581A07 /* anscombe_quartet_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B769B851946C4EF00581A07 /* anscombe_quartet_iosTests.m */; };
+		9B9881871946CF3B009304E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9881861946CF3B009304E2 /* AppDelegate.m */; };
+		9B98818E1946CF58009304E2 /* AQChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B98818D1946CF58009304E2 /* AQChartViewController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		9B769B7D1946C4EF00581A07 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9B769B4F1946C4EF00581A07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9B769B561946C4EF00581A07;
-			remoteInfo = "anscombe-quartet-ios";
-		};
-		9BA3D9F41946C5A800700642 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9B769B4F1946C4EF00581A07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9B769B561946C4EF00581A07;
-			remoteInfo = "anscombe-quartet-ios";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9B769B571946C4EF00581A07 /* anscombe-quartet-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "anscombe-quartet-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,17 +26,12 @@
 		9B769B641946C4EF00581A07 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9B769B661946C4EF00581A07 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B769B681946C4EF00581A07 /* anscombe-quartet-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "anscombe-quartet-ios-Prefix.pch"; sourceTree = "<group>"; };
-		9B769B691946C4EF00581A07 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		9B769B6A1946C4EF00581A07 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9B769B6D1946C4EF00581A07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9B769B6F1946C4EF00581A07 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9B769B701946C4EF00581A07 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9B769B721946C4EF00581A07 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		9B769B781946C4EF00581A07 /* anscombe-quartet-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "anscombe-quartet-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B769B791946C4EF00581A07 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		9B769B811946C4EF00581A07 /* anscombe-quartet-iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "anscombe-quartet-iosTests-Info.plist"; sourceTree = "<group>"; };
-		9B769B831946C4EF00581A07 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9B769B851946C4EF00581A07 /* anscombe_quartet_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = anscombe_quartet_iosTests.m; sourceTree = "<group>"; };
+		9B9881851946CF3B009304E2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9B9881861946CF3B009304E2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9B98818C1946CF58009304E2 /* AQChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQChartViewController.h; sourceTree = "<group>"; };
+		9B98818D1946CF58009304E2 /* AQChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQChartViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,16 +45,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9B769B751946C4EF00581A07 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9B769B7A1946C4EF00581A07 /* XCTest.framework in Frameworks */,
-				9B769B7C1946C4EF00581A07 /* UIKit.framework in Frameworks */,
-				9B769B7B1946C4EF00581A07 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -90,7 +52,6 @@
 			isa = PBXGroup;
 			children = (
 				9B769B601946C4EF00581A07 /* anscombe-quartet-ios */,
-				9B769B7F1946C4EF00581A07 /* anscombe-quartet-iosTests */,
 				9B769B591946C4EF00581A07 /* Frameworks */,
 				9B769B581946C4EF00581A07 /* Products */,
 			);
@@ -100,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				9B769B571946C4EF00581A07 /* anscombe-quartet-ios.app */,
-				9B769B781946C4EF00581A07 /* anscombe-quartet-iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,11 +79,8 @@
 		9B769B601946C4EF00581A07 /* anscombe-quartet-ios */ = {
 			isa = PBXGroup;
 			children = (
-				9B769B691946C4EF00581A07 /* AppDelegate.h */,
-				9B769B6A1946C4EF00581A07 /* AppDelegate.m */,
-				9B769B6C1946C4EF00581A07 /* Main.storyboard */,
-				9B769B6F1946C4EF00581A07 /* ViewController.h */,
-				9B769B701946C4EF00581A07 /* ViewController.m */,
+				9B98818B1946CF58009304E2 /* Controllers */,
+				9B9881841946CF3B009304E2 /* Delegate */,
 				9B769B721946C4EF00581A07 /* Images.xcassets */,
 				9B769B611946C4EF00581A07 /* Supporting Files */,
 			);
@@ -141,22 +98,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9B769B7F1946C4EF00581A07 /* anscombe-quartet-iosTests */ = {
+		9B9881841946CF3B009304E2 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				9B769B851946C4EF00581A07 /* anscombe_quartet_iosTests.m */,
-				9B769B801946C4EF00581A07 /* Supporting Files */,
+				9B9881851946CF3B009304E2 /* AppDelegate.h */,
+				9B9881861946CF3B009304E2 /* AppDelegate.m */,
 			);
-			path = "anscombe-quartet-iosTests";
+			path = Delegate;
 			sourceTree = "<group>";
 		};
-		9B769B801946C4EF00581A07 /* Supporting Files */ = {
+		9B98818B1946CF58009304E2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9B769B811946C4EF00581A07 /* anscombe-quartet-iosTests-Info.plist */,
-				9B769B821946C4EF00581A07 /* InfoPlist.strings */,
+				9B98818C1946CF58009304E2 /* AQChartViewController.h */,
+				9B98818D1946CF58009304E2 /* AQChartViewController.m */,
 			);
-			name = "Supporting Files";
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,25 +136,6 @@
 			productReference = 9B769B571946C4EF00581A07 /* anscombe-quartet-ios.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9B769B771946C4EF00581A07 /* anscombe-quartet-iosTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9B769B8C1946C4EF00581A07 /* Build configuration list for PBXNativeTarget "anscombe-quartet-iosTests" */;
-			buildPhases = (
-				9B769B741946C4EF00581A07 /* Sources */,
-				9B769B751946C4EF00581A07 /* Frameworks */,
-				9B769B761946C4EF00581A07 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9B769B7E1946C4EF00581A07 /* PBXTargetDependency */,
-				9BA3D9F51946C5A800700642 /* PBXTargetDependency */,
-			);
-			name = "anscombe-quartet-iosTests";
-			productName = "anscombe-quartet-iosTests";
-			productReference = 9B769B781946C4EF00581A07 /* anscombe-quartet-iosTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -206,11 +144,6 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Jawbone;
-				TargetAttributes = {
-					9B769B771946C4EF00581A07 = {
-						TestTargetID = 9B769B561946C4EF00581A07;
-					};
-				};
 			};
 			buildConfigurationList = 9B769B521946C4EF00581A07 /* Build configuration list for PBXProject "anscombe-quartet-ios" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -226,7 +159,6 @@
 			projectRoot = "";
 			targets = (
 				9B769B561946C4EF00581A07 /* anscombe-quartet-ios */,
-				9B769B771946C4EF00581A07 /* anscombe-quartet-iosTests */,
 			);
 		};
 /* End PBXProject section */
@@ -238,15 +170,6 @@
 			files = (
 				9B769B731946C4EF00581A07 /* Images.xcassets in Resources */,
 				9B769B651946C4EF00581A07 /* InfoPlist.strings in Resources */,
-				9B769B6E1946C4EF00581A07 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9B769B761946C4EF00581A07 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9B769B841946C4EF00581A07 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,56 +180,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B769B711946C4EF00581A07 /* ViewController.m in Sources */,
-				9B769B6B1946C4EF00581A07 /* AppDelegate.m in Sources */,
+				9B9881871946CF3B009304E2 /* AppDelegate.m in Sources */,
+				9B98818E1946CF58009304E2 /* AQChartViewController.m in Sources */,
 				9B769B671946C4EF00581A07 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9B769B741946C4EF00581A07 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9B769B861946C4EF00581A07 /* anscombe_quartet_iosTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		9B769B7E1946C4EF00581A07 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9B769B561946C4EF00581A07 /* anscombe-quartet-ios */;
-			targetProxy = 9B769B7D1946C4EF00581A07 /* PBXContainerItemProxy */;
-		};
-		9BA3D9F51946C5A800700642 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9B769B561946C4EF00581A07 /* anscombe-quartet-ios */;
-			targetProxy = 9BA3D9F41946C5A800700642 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9B769B631946C4EF00581A07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9B769B641946C4EF00581A07 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		9B769B6C1946C4EF00581A07 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9B769B6D1946C4EF00581A07 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		9B769B821946C4EF00581A07 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9B769B831946C4EF00581A07 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -410,46 +296,6 @@
 			};
 			name = Release;
 		};
-		9B769B8D1946C4EF00581A07 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/anscombe-quartet-ios.app/anscombe-quartet-ios";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "anscombe-quartet-ios/anscombe-quartet-ios-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "anscombe-quartet-iosTests/anscombe-quartet-iosTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		9B769B8E1946C4EF00581A07 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/anscombe-quartet-ios.app/anscombe-quartet-ios";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "anscombe-quartet-ios/anscombe-quartet-ios-Prefix.pch";
-				INFOPLIST_FILE = "anscombe-quartet-iosTests/anscombe-quartet-iosTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -467,15 +313,6 @@
 			buildConfigurations = (
 				9B769B8A1946C4EF00581A07 /* Debug */,
 				9B769B8B1946C4EF00581A07 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9B769B8C1946C4EF00581A07 /* Build configuration list for PBXNativeTarget "anscombe-quartet-iosTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9B769B8D1946C4EF00581A07 /* Debug */,
-				9B769B8E1946C4EF00581A07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
