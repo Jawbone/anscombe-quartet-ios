@@ -11,19 +11,27 @@
 // Views
 #import <JBLineChartView.h>
 
+// Numerics
+static const CGFloat kAQChartScrollViewHeight = 200.0f;
+static const CGFloat kAQChartScrollViewPageControlHeight = 44.0f;
+
 @protocol AQScrollViewDataSource;
 @protocol AQScrollViewDelegate;
 
-@interface AQChartScrollView : UIScrollView
+@interface AQChartScrollView : UIView
 
-@property (nonatomic, weak) id<AQScrollViewDataSource> scrollDataSource;
-@property (nonatomic, weak) id<AQScrollViewDelegate> scrollDelegate;
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIPageControl *pageControl;
+@property (nonatomic, weak) id<AQScrollViewDataSource> dataSource;
+@property (nonatomic, weak) id<AQScrollViewDelegate> delegate;
 
 - (void)reloadData;
 
 @end
 
 @protocol AQScrollViewDataSource <NSObject>
+
+- (NSUInteger)numberOfChartsInChartScrollView:(AQChartScrollView *)chartScrollView;
 
 @end
 
@@ -46,16 +54,39 @@
 {
     [super loadView];
     
-    self.scrollView = [[AQChartScrollView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, 200)];
-    self.scrollView.scrollDataSource = self;
-    self.scrollView.scrollDelegate = self;
+    self.scrollView = [[AQChartScrollView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, kAQChartScrollViewHeight)];
+    self.scrollView.dataSource = self;
+    self.scrollView.delegate = self;
+    [self.scrollView reloadData];
     [self.tableView setTableHeaderView:self.scrollView];
 }
 
+#pragma mark - AQScrollViewDataSource
+
+- (NSUInteger)numberOfChartsInChartScrollView:(AQChartScrollView *)chartScrollView
+{
+    return 4;
+}
 
 @end
 
 @implementation AQChartScrollView
+
+#pragma mark - Alloc/Init
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+        [self addSubview:_scrollView];
+        
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(self.bounds.origin.x, self.bounds.size.height - kAQChartScrollViewPageControlHeight, self.bounds.size.width, kAQChartScrollViewPageControlHeight)];
+        [self addSubview:_pageControl];
+    }
+    return self;
+}
 
 - (void)reloadData
 {
