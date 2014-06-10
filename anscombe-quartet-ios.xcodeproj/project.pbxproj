@@ -1,0 +1,486 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9B769B5B1946C4EF00581A07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B769B5A1946C4EF00581A07 /* Foundation.framework */; };
+		9B769B5D1946C4EF00581A07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B769B5C1946C4EF00581A07 /* CoreGraphics.framework */; };
+		9B769B5F1946C4EF00581A07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B769B5E1946C4EF00581A07 /* UIKit.framework */; };
+		9B769B651946C4EF00581A07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B769B631946C4EF00581A07 /* InfoPlist.strings */; };
+		9B769B671946C4EF00581A07 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B769B661946C4EF00581A07 /* main.m */; };
+		9B769B6B1946C4EF00581A07 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B769B6A1946C4EF00581A07 /* AppDelegate.m */; };
+		9B769B6E1946C4EF00581A07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B769B6C1946C4EF00581A07 /* Main.storyboard */; };
+		9B769B711946C4EF00581A07 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B769B701946C4EF00581A07 /* ViewController.m */; };
+		9B769B731946C4EF00581A07 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B769B721946C4EF00581A07 /* Images.xcassets */; };
+		9B769B7A1946C4EF00581A07 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B769B791946C4EF00581A07 /* XCTest.framework */; };
+		9B769B7B1946C4EF00581A07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B769B5A1946C4EF00581A07 /* Foundation.framework */; };
+		9B769B7C1946C4EF00581A07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B769B5E1946C4EF00581A07 /* UIKit.framework */; };
+		9B769B841946C4EF00581A07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B769B821946C4EF00581A07 /* InfoPlist.strings */; };
+		9B769B861946C4EF00581A07 /* anscombe_quartet_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B769B851946C4EF00581A07 /* anscombe_quartet_iosTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9B769B7D1946C4EF00581A07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B769B4F1946C4EF00581A07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B769B561946C4EF00581A07;
+			remoteInfo = "anscombe-quartet-ios";
+		};
+		9BA3D9F41946C5A800700642 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B769B4F1946C4EF00581A07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B769B561946C4EF00581A07;
+			remoteInfo = "anscombe-quartet-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9B769B571946C4EF00581A07 /* anscombe-quartet-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "anscombe-quartet-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B769B5A1946C4EF00581A07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9B769B5C1946C4EF00581A07 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9B769B5E1946C4EF00581A07 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9B769B621946C4EF00581A07 /* anscombe-quartet-ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "anscombe-quartet-ios-Info.plist"; sourceTree = "<group>"; };
+		9B769B641946C4EF00581A07 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9B769B661946C4EF00581A07 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9B769B681946C4EF00581A07 /* anscombe-quartet-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "anscombe-quartet-ios-Prefix.pch"; sourceTree = "<group>"; };
+		9B769B691946C4EF00581A07 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9B769B6A1946C4EF00581A07 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9B769B6D1946C4EF00581A07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9B769B6F1946C4EF00581A07 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9B769B701946C4EF00581A07 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9B769B721946C4EF00581A07 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9B769B781946C4EF00581A07 /* anscombe-quartet-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "anscombe-quartet-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B769B791946C4EF00581A07 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		9B769B811946C4EF00581A07 /* anscombe-quartet-iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "anscombe-quartet-iosTests-Info.plist"; sourceTree = "<group>"; };
+		9B769B831946C4EF00581A07 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9B769B851946C4EF00581A07 /* anscombe_quartet_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = anscombe_quartet_iosTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9B769B541946C4EF00581A07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B769B5D1946C4EF00581A07 /* CoreGraphics.framework in Frameworks */,
+				9B769B5F1946C4EF00581A07 /* UIKit.framework in Frameworks */,
+				9B769B5B1946C4EF00581A07 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B769B751946C4EF00581A07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B769B7A1946C4EF00581A07 /* XCTest.framework in Frameworks */,
+				9B769B7C1946C4EF00581A07 /* UIKit.framework in Frameworks */,
+				9B769B7B1946C4EF00581A07 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9B769B4E1946C4EF00581A07 = {
+			isa = PBXGroup;
+			children = (
+				9B769B601946C4EF00581A07 /* anscombe-quartet-ios */,
+				9B769B7F1946C4EF00581A07 /* anscombe-quartet-iosTests */,
+				9B769B591946C4EF00581A07 /* Frameworks */,
+				9B769B581946C4EF00581A07 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9B769B581946C4EF00581A07 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B769B571946C4EF00581A07 /* anscombe-quartet-ios.app */,
+				9B769B781946C4EF00581A07 /* anscombe-quartet-iosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9B769B591946C4EF00581A07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B769B5A1946C4EF00581A07 /* Foundation.framework */,
+				9B769B5C1946C4EF00581A07 /* CoreGraphics.framework */,
+				9B769B5E1946C4EF00581A07 /* UIKit.framework */,
+				9B769B791946C4EF00581A07 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B769B601946C4EF00581A07 /* anscombe-quartet-ios */ = {
+			isa = PBXGroup;
+			children = (
+				9B769B691946C4EF00581A07 /* AppDelegate.h */,
+				9B769B6A1946C4EF00581A07 /* AppDelegate.m */,
+				9B769B6C1946C4EF00581A07 /* Main.storyboard */,
+				9B769B6F1946C4EF00581A07 /* ViewController.h */,
+				9B769B701946C4EF00581A07 /* ViewController.m */,
+				9B769B721946C4EF00581A07 /* Images.xcassets */,
+				9B769B611946C4EF00581A07 /* Supporting Files */,
+			);
+			path = "anscombe-quartet-ios";
+			sourceTree = "<group>";
+		};
+		9B769B611946C4EF00581A07 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B769B621946C4EF00581A07 /* anscombe-quartet-ios-Info.plist */,
+				9B769B631946C4EF00581A07 /* InfoPlist.strings */,
+				9B769B661946C4EF00581A07 /* main.m */,
+				9B769B681946C4EF00581A07 /* anscombe-quartet-ios-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9B769B7F1946C4EF00581A07 /* anscombe-quartet-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				9B769B851946C4EF00581A07 /* anscombe_quartet_iosTests.m */,
+				9B769B801946C4EF00581A07 /* Supporting Files */,
+			);
+			path = "anscombe-quartet-iosTests";
+			sourceTree = "<group>";
+		};
+		9B769B801946C4EF00581A07 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B769B811946C4EF00581A07 /* anscombe-quartet-iosTests-Info.plist */,
+				9B769B821946C4EF00581A07 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9B769B561946C4EF00581A07 /* anscombe-quartet-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B769B891946C4EF00581A07 /* Build configuration list for PBXNativeTarget "anscombe-quartet-ios" */;
+			buildPhases = (
+				9B769B531946C4EF00581A07 /* Sources */,
+				9B769B541946C4EF00581A07 /* Frameworks */,
+				9B769B551946C4EF00581A07 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "anscombe-quartet-ios";
+			productName = "anscombe-quartet-ios";
+			productReference = 9B769B571946C4EF00581A07 /* anscombe-quartet-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9B769B771946C4EF00581A07 /* anscombe-quartet-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B769B8C1946C4EF00581A07 /* Build configuration list for PBXNativeTarget "anscombe-quartet-iosTests" */;
+			buildPhases = (
+				9B769B741946C4EF00581A07 /* Sources */,
+				9B769B751946C4EF00581A07 /* Frameworks */,
+				9B769B761946C4EF00581A07 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B769B7E1946C4EF00581A07 /* PBXTargetDependency */,
+				9BA3D9F51946C5A800700642 /* PBXTargetDependency */,
+			);
+			name = "anscombe-quartet-iosTests";
+			productName = "anscombe-quartet-iosTests";
+			productReference = 9B769B781946C4EF00581A07 /* anscombe-quartet-iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9B769B4F1946C4EF00581A07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Jawbone;
+				TargetAttributes = {
+					9B769B771946C4EF00581A07 = {
+						TestTargetID = 9B769B561946C4EF00581A07;
+					};
+				};
+			};
+			buildConfigurationList = 9B769B521946C4EF00581A07 /* Build configuration list for PBXProject "anscombe-quartet-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9B769B4E1946C4EF00581A07;
+			productRefGroup = 9B769B581946C4EF00581A07 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9B769B561946C4EF00581A07 /* anscombe-quartet-ios */,
+				9B769B771946C4EF00581A07 /* anscombe-quartet-iosTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9B769B551946C4EF00581A07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B769B731946C4EF00581A07 /* Images.xcassets in Resources */,
+				9B769B651946C4EF00581A07 /* InfoPlist.strings in Resources */,
+				9B769B6E1946C4EF00581A07 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B769B761946C4EF00581A07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B769B841946C4EF00581A07 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9B769B531946C4EF00581A07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B769B711946C4EF00581A07 /* ViewController.m in Sources */,
+				9B769B6B1946C4EF00581A07 /* AppDelegate.m in Sources */,
+				9B769B671946C4EF00581A07 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B769B741946C4EF00581A07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B769B861946C4EF00581A07 /* anscombe_quartet_iosTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9B769B7E1946C4EF00581A07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B769B561946C4EF00581A07 /* anscombe-quartet-ios */;
+			targetProxy = 9B769B7D1946C4EF00581A07 /* PBXContainerItemProxy */;
+		};
+		9BA3D9F51946C5A800700642 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B769B561946C4EF00581A07 /* anscombe-quartet-ios */;
+			targetProxy = 9BA3D9F41946C5A800700642 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9B769B631946C4EF00581A07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B769B641946C4EF00581A07 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9B769B6C1946C4EF00581A07 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B769B6D1946C4EF00581A07 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9B769B821946C4EF00581A07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B769B831946C4EF00581A07 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9B769B871946C4EF00581A07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9B769B881946C4EF00581A07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9B769B8A1946C4EF00581A07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "anscombe-quartet-ios/anscombe-quartet-ios-Prefix.pch";
+				INFOPLIST_FILE = "anscombe-quartet-ios/anscombe-quartet-ios-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9B769B8B1946C4EF00581A07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "anscombe-quartet-ios/anscombe-quartet-ios-Prefix.pch";
+				INFOPLIST_FILE = "anscombe-quartet-ios/anscombe-quartet-ios-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9B769B8D1946C4EF00581A07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/anscombe-quartet-ios.app/anscombe-quartet-ios";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "anscombe-quartet-ios/anscombe-quartet-ios-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "anscombe-quartet-iosTests/anscombe-quartet-iosTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		9B769B8E1946C4EF00581A07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/anscombe-quartet-ios.app/anscombe-quartet-ios";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "anscombe-quartet-ios/anscombe-quartet-ios-Prefix.pch";
+				INFOPLIST_FILE = "anscombe-quartet-iosTests/anscombe-quartet-iosTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9B769B521946C4EF00581A07 /* Build configuration list for PBXProject "anscombe-quartet-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B769B871946C4EF00581A07 /* Debug */,
+				9B769B881946C4EF00581A07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B769B891946C4EF00581A07 /* Build configuration list for PBXNativeTarget "anscombe-quartet-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B769B8A1946C4EF00581A07 /* Debug */,
+				9B769B8B1946C4EF00581A07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B769B8C1946C4EF00581A07 /* Build configuration list for PBXNativeTarget "anscombe-quartet-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B769B8D1946C4EF00581A07 /* Debug */,
+				9B769B8E1946C4EF00581A07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9B769B4F1946C4EF00581A07 /* Project object */;
+}
