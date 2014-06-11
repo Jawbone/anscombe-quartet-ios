@@ -11,6 +11,15 @@
 // Views
 #import <JBLineChartView.h>
 
+// Enums
+typedef NS_ENUM(NSInteger, AQChartScrollViewChartType){
+    AQChartScrollViewChartType1,
+	AQChartScrollViewChartType2,
+    AQChartScrollViewChartType3,
+    AQChartScrollViewChartType4,
+    AQChartScrollViewChartTypeCount
+};
+
 // Numerics
 static const CGFloat kAQChartScrollViewHeight = 200.0f;
 static const CGFloat kAQChartScrollViewPageControlHeight = 44.0f;
@@ -37,22 +46,58 @@ static const CGFloat kAQChartScrollViewPageControlHeight = 44.0f;
 
 @protocol AQScrollViewDelegate <NSObject>
 
+- (UIView *)chartScrollView:(AQChartScrollView *)chartScrollView chartViewAtIndex:(NSUInteger)index;
+
 @end
 
-@interface AQChartViewController () <AQScrollViewDataSource, AQScrollViewDelegate>
+@interface AQChartViewController () <AQScrollViewDataSource, AQScrollViewDelegate, JBLineChartViewDataSource, JBLineChartViewDelegate>
 
 @property (nonatomic, strong) AQChartScrollView *scrollView;
 @property (nonatomic, strong) NSArray *chartViews;
+@property (nonatomic, strong) NSDictionary *dataModel;
+
+- (void)initDataModel;
 
 @end
 
 @implementation AQChartViewController
+
+#pragma mark - Alloc/Init
+
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        [self initDataModel];
+    }
+    return self;
+}
+
+#pragma mark - Data
+
+- (void)initDataModel
+{
+    NSMutableDictionary *mutableDataModel = [NSMutableDictionary dictionary];
+    self.dataModel = [NSMutableDictionary dictionaryWithDictionary:mutableDataModel];
+}
 
 #pragma mark - View Lifecycle
 
 - (void)loadView
 {
     [super loadView];
+    
+    NSMutableArray *mutableChartViews = [[NSMutableArray alloc] init];
+    for (int index=0; index < AQChartScrollViewChartTypeCount; index++)
+    {
+        JBLineChartView *lineChartView = [[JBLineChartView alloc] init];
+        lineChartView.tag = index;
+        lineChartView.delegate = self;
+        lineChartView.dataSource = self;
+        [mutableChartViews addObject:lineChartView];
+    }
+    self.chartViews = [NSArray arrayWithArray:mutableChartViews];
     
     self.scrollView = [[AQChartScrollView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, kAQChartScrollViewHeight)];
     self.scrollView.dataSource = self;
@@ -65,7 +110,31 @@ static const CGFloat kAQChartScrollViewPageControlHeight = 44.0f;
 
 - (NSUInteger)numberOfChartsInChartScrollView:(AQChartScrollView *)chartScrollView
 {
-    return 4;
+    return AQChartScrollViewChartTypeCount;
+}
+
+- (UIView *)chartScrollView:(AQChartScrollView *)chartScrollView chartViewAtIndex:(NSUInteger)index
+{
+    return nil;
+}
+
+#pragma mark - JBLineChartViewDataSource
+
+- (NSUInteger)numberOfLinesInLineChartView:(JBLineChartView *)lineChartView;
+{
+    return 0;
+}
+
+- (NSUInteger)lineChartView:(JBLineChartView *)lineChartView numberOfVerticalValuesAtLineIndex:(NSUInteger)lineIndex
+{
+    return 0;
+}
+
+#pragma mark - JBLineChartViewDelegate
+
+- (CGFloat)lineChartView:(JBLineChartView *)lineChartView verticalValueForHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
+{
+    return 0;
 }
 
 @end
