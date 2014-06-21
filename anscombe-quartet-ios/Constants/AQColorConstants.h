@@ -10,4 +10,6 @@
 
 #pragma mark - Base
 
-#define kJBColorBaseBackgroundColor UIColorFromHex(0xf5f4f0)
+#define kAQColorBaseBackgroundColor UIColorFromHex(0xf5f4f0)
+#define kAQColorLegendSeparatorColor UIColorFromHex(0x585858)
+#define kAQColorLegendTextColor UIColorFromHex(0x585858)
