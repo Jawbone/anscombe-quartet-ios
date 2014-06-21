@@ -10,13 +10,14 @@
 
 // Controllers
 #import "AQChartViewController.h"
+#import "AQBaseNavigationController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[AQChartViewController alloc] init]];
+    AQBaseNavigationController *navigationController = [[AQBaseNavigationController alloc] initWithRootViewController:[[AQChartViewController alloc] init]];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     return YES;
