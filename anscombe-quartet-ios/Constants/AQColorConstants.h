@@ -13,3 +13,4 @@
 #define kAQColorBaseBackgroundColor UIColorFromHex(0xf5f4f0)
 #define kAQColorLegendSeparatorColor UIColorFromHex(0x585858)
 #define kAQColorLegendTextColor UIColorFromHex(0x585858)
+#define kAQColorChartTitleColor UIColorFromHex(0x000000)

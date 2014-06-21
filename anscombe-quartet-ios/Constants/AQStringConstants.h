@@ -13,3 +13,4 @@
 #define kJBStringLabelXAxis localize(@"label.x.axis", @"x%d")
 #define kJBStringLabelYAxis localize(@"label.y.axis", @"y%d")
 #define kJBStringLabelChart localize(@"label.chart", @"Chart %d")
+#define kJBStringLabelAnscombeQuartet localize(@"label.anscombe.quartet", @"Anscombe’s Quartet")

@@ -16,6 +16,7 @@
 		9B9881871946CF3B009304E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9881861946CF3B009304E2 /* AppDelegate.m */; };
 		9BAF61AE19561EB200482F21 /* AQChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF61AD19561EB200482F21 /* AQChartViewController.m */; };
 		9BAF61B519561EDF00482F21 /* AQBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF61B419561EDF00482F21 /* AQBaseNavigationController.m */; };
+		9BF39FC01956431B00777DB9 /* AQChartDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF39FBF1956431B00777DB9 /* AQChartDetailViewController.m */; };
 		AFBA96371DE84A2184837E81 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B973261D2C24131AD99E38D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,8 @@
 		9BAF61B919562B7400482F21 /* AQConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQConstants.h; sourceTree = "<group>"; };
 		9BAF61BA19562B8000482F21 /* AQColorConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQColorConstants.h; sourceTree = "<group>"; };
 		9BF39FBD19563C2400777DB9 /* AQStringConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQStringConstants.h; sourceTree = "<group>"; };
+		9BF39FBE1956431B00777DB9 /* AQChartDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQChartDetailViewController.h; sourceTree = "<group>"; };
+		9BF39FBF1956431B00777DB9 /* AQChartDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQChartDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,8 @@
 			children = (
 				9BAF61AC19561EB200482F21 /* AQChartViewController.h */,
 				9BAF61AD19561EB200482F21 /* AQChartViewController.m */,
+				9BF39FBE1956431B00777DB9 /* AQChartDetailViewController.h */,
+				9BF39FBF1956431B00777DB9 /* AQChartDetailViewController.m */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BF39FC01956431B00777DB9 /* AQChartDetailViewController.m in Sources */,
 				9BAF61B519561EDF00482F21 /* AQBaseNavigationController.m in Sources */,
 				9B9881871946CF3B009304E2 /* AppDelegate.m in Sources */,
 				9BAF61AE19561EB200482F21 /* AQChartViewController.m in Sources */,

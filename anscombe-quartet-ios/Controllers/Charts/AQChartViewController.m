@@ -11,6 +11,9 @@
 // Views
 #import <JBLineChartView.h>
 
+// Controllers
+#import "AQChartDetailViewController.h"
+
 // Enums
 typedef NS_ENUM(NSInteger, AQChartViewChartType){
     AQChartViewChartType1,
@@ -34,11 +37,25 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
 
 @end
 
+@protocol AQChartViewDelegate;
+
 @interface AQChartView : UIView
 
+@property (nonatomic, weak) id<AQChartViewDelegate> delegate;
 @property (nonatomic, strong) JBLineChartView *lineChartView;
 @property (nonatomic, strong) AQChartLegendView *chartLegendView;
 @property (nonatomic, strong) UILabel *titleLabel;
+
+// Gestures
+-  (void)chartViewTapped:(id)sender;
+
+@end
+
+@protocol AQChartViewDelegate <NSObject>
+
+@optional
+
+- (void)didSelectChartView:(AQChartView *)chartView;
 
 @end
 
@@ -50,7 +67,7 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
 
 @end
 
-@interface AQChartViewController () <JBLineChartViewDataSource, JBLineChartViewDelegate>
+@interface AQChartViewController () <JBLineChartViewDataSource, JBLineChartViewDelegate, AQChartViewDelegate>
 
 @property (nonatomic, strong) AQChartGridView *chartGridView;
 @property (nonatomic, strong) NSDictionary *dataModel;
@@ -87,6 +104,8 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
 {
     [super loadView];
     
+    self.title = kJBStringLabelAnscombeQuartet;
+    
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
     self.chartGridView = [[AQChartGridView alloc] initWithFrame:self.view.bounds];
@@ -96,6 +115,7 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
     for (int chartIndex=0; chartIndex<AQChartViewChartTypeCount; chartIndex++)
     {
         AQChartView *chartView = [[AQChartView alloc] init];
+        chartView.delegate = self;
         chartView.lineChartView.delegate = self;
         chartView.lineChartView.dataSource = self;
         chartView.lineChartView.tag = chartIndex;
@@ -126,6 +146,14 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
 - (CGFloat)lineChartView:(JBLineChartView *)lineChartView verticalValueForHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
 {
     return 0;
+}
+
+#pragma mark - AQChartViewDelegate
+
+- (void)didSelectChartView:(AQChartView *)chartView
+{
+    AQChartDetailViewController *detailViewController = [[AQChartDetailViewController alloc] init];
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 @end
@@ -217,13 +245,16 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.backgroundColor = [UIColor clearColor];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.textColor = kAQColorLegendTextColor;
+        _titleLabel.textColor = kAQColorChartTitleColor;
         _titleLabel.font = [UIFont systemFontOfSize:10.0f];
         [self addSubview:_titleLabel];
         
         _lineChartView = [[JBLineChartView alloc] init];
         _lineChartView.backgroundColor = kAQColorBaseBackgroundColor;
         [self addSubview:_lineChartView];
+        
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chartViewTapped:)];
+        [self addGestureRecognizer:tapGestureRecognizer];
     }
     return self;
 }
@@ -239,6 +270,16 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
 
     self.chartLegendView.frame = self.bounds;
     self.lineChartView.frame = CGRectMake(kAQChartLegendViewMarginSize, self.bounds.origin.y + CGRectGetMaxY(self.titleLabel.frame), self.bounds.size.width - kAQChartLegendViewMarginSize, self.bounds.size.height - kAQChartLegendViewMarginSize - CGRectGetMaxY(self.titleLabel.frame));
+}
+
+#pragma mark - Gestures
+
+-  (void)chartViewTapped:(id)sender
+{
+    if ([self.delegate respondsToSelector:@selector(didSelectChartView:)])
+    {
+        [self.delegate didSelectChartView:self];
+    }
 }
 
 @end
