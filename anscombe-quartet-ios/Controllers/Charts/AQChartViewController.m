@@ -38,6 +38,7 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
 
 @property (nonatomic, strong) JBLineChartView *lineChartView;
 @property (nonatomic, strong) AQChartLegendView *chartLegendView;
+@property (nonatomic, strong) UILabel *titleLabel;
 
 @end
 
@@ -98,8 +99,9 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
         chartView.lineChartView.delegate = self;
         chartView.lineChartView.dataSource = self;
         chartView.lineChartView.tag = chartIndex;
-        chartView.chartLegendView.xAxisLabel.text = [NSString stringWithFormat:@"x%d", chartIndex];
-        chartView.chartLegendView.yAxisLabel.text = [NSString stringWithFormat:@"y%d", chartIndex];
+        chartView.chartLegendView.xAxisLabel.text = [NSString stringWithFormat:kJBStringLabelXAxis, chartIndex];
+        chartView.chartLegendView.yAxisLabel.text = [NSString stringWithFormat:kJBStringLabelYAxis, chartIndex];
+        chartView.titleLabel.text = [NSString stringWithFormat:kJBStringLabelChart, chartIndex];
         [mutableChartGrids addObject:chartView];
     }
     self.chartGridView.chartViews = [NSArray arrayWithArray:mutableChartGrids];
@@ -109,7 +111,7 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
 
 #pragma mark - JBLineChartViewDataSource
 
-- (NSUInteger)numberOfLinesInLineChartView:(JBLineChartView *)lineChartView;
+- (NSUInteger)numberOfLinesInLineChartView:(JBLineChartView *)lineChartView
 {
     return 0;
 }
@@ -201,9 +203,9 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
 
 #pragma mark - Alloc/Init
 
-- (id)initWithFrame:(CGRect)frame
+- (id)init
 {
-    self = [super initWithFrame:frame];
+    self = [super init];
     if (self)
     {
         self.backgroundColor = [UIColor clearColor];
@@ -211,6 +213,13 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
         _chartLegendView = [[AQChartLegendView alloc] init];
         _chartLegendView.backgroundColor = [UIColor clearColor];
         [self addSubview:_chartLegendView];
+        
+        _titleLabel = [[UILabel alloc] init];
+        _titleLabel.backgroundColor = [UIColor clearColor];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.textColor = kAQColorLegendTextColor;
+        _titleLabel.font = [UIFont systemFontOfSize:10.0f];
+        [self addSubview:_titleLabel];
         
         _lineChartView = [[JBLineChartView alloc] init];
         _lineChartView.backgroundColor = kAQColorBaseBackgroundColor;
@@ -224,8 +233,12 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    CGSize titleSize = [self.titleLabel.text sizeWithAttributes:@{NSFontAttributeName:self.titleLabel.font}];
+    self.titleLabel.frame = CGRectMake(kAQChartLegendViewMarginSize, self.bounds.origin.y, self.bounds.size.width - kAQChartLegendViewMarginSize, titleSize.height);
+
     self.chartLegendView.frame = self.bounds;
-    self.lineChartView.frame = CGRectMake(kAQChartLegendViewMarginSize, self.bounds.origin.y, self.bounds.size.width - kAQChartLegendViewMarginSize, self.bounds.size.height - kAQChartLegendViewMarginSize);
+    self.lineChartView.frame = CGRectMake(kAQChartLegendViewMarginSize, self.bounds.origin.y + CGRectGetMaxY(self.titleLabel.frame), self.bounds.size.width - kAQChartLegendViewMarginSize, self.bounds.size.height - kAQChartLegendViewMarginSize - CGRectGetMaxY(self.titleLabel.frame));
 }
 
 @end
