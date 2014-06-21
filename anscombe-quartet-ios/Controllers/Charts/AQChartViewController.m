@@ -20,10 +20,20 @@ typedef NS_ENUM(NSInteger, AQChartViewChartType){
     AQChartViewChartTypeCount
 };
 
-// Numerics (JBLineChartLineView)
-CGFloat static const kAQChartGridViewPadding = 10.0f;
+// Numerics (AQChartLegendView)
+CGFloat static const kAQChartLegendViewMarginSize = 15.0f;
 
-@interface AQChartView : JBLineChartView
+// Numerics (AQChartGridView)
+CGFloat static const kAQChartGridViewPadding = 5.0f;
+
+@interface AQChartLegendView : UIView
+
+@end
+
+@interface AQChartView : UIView
+
+@property (nonatomic, strong) JBLineChartView *lineChartView;
+@property (nonatomic, strong) AQChartLegendView *chartLegendView;
 
 @end
 
@@ -75,16 +85,15 @@ CGFloat static const kAQChartGridViewPadding = 10.0f;
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
     self.chartGridView = [[AQChartGridView alloc] initWithFrame:self.view.bounds];
-    self.chartGridView.backgroundColor = [UIColor purpleColor];
     self.view = self.chartGridView;
     
     NSMutableArray *mutableChartGrids = [[NSMutableArray alloc] init];
     for (int chartIndex=0; chartIndex<AQChartViewChartTypeCount; chartIndex++)
     {
         AQChartView *chartView = [[AQChartView alloc] init];
-        chartView.delegate = self;
-        chartView.dataSource = self;
-        chartView.tag = chartIndex;
+        chartView.lineChartView.delegate = self;
+        chartView.lineChartView.dataSource = self;
+        chartView.lineChartView.tag = chartIndex;
         chartView.backgroundColor = [UIColor redColor];
         [mutableChartGrids addObject:chartView];
     }
@@ -114,11 +123,63 @@ CGFloat static const kAQChartGridViewPadding = 10.0f;
 
 @end
 
+@implementation AQChartLegendView
+
+#pragma mark - Drawing
+
+- (void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+}
+
+@end
+
 @implementation AQChartView
+
+#pragma mark - Alloc/Init
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        self.backgroundColor = [UIColor clearColor];
+        
+        _chartLegendView = [[AQChartLegendView alloc] init];
+        _chartLegendView.backgroundColor = [UIColor blueColor];
+        [self addSubview:_chartLegendView];
+        
+        _lineChartView = [[JBLineChartView alloc] init];
+        _lineChartView.backgroundColor = kJBColorBaseBackgroundColor;
+        [self addSubview:_lineChartView];
+    }
+    return self;
+}
+
+#pragma mark - Layout
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.chartLegendView.frame = self.bounds;
+    self.lineChartView.frame = CGRectMake(kAQChartLegendViewMarginSize, self.bounds.origin.y, self.bounds.size.width - kAQChartLegendViewMarginSize, self.bounds.size.height - kAQChartLegendViewMarginSize);
+}
 
 @end
 
 @implementation AQChartGridView
+
+#pragma mark - Alloc/Init
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        self.backgroundColor = kJBColorBaseBackgroundColor;
+    }
+    return self;
+}
 
 #pragma mark - Data
 
@@ -128,7 +189,7 @@ CGFloat static const kAQChartGridViewPadding = 10.0f;
     {
         if ([chartView isKindOfClass:[AQChartView class]])
         {
-            [chartView reloadData];
+            [chartView.lineChartView reloadData];
         }
     }
     
@@ -156,7 +217,7 @@ CGFloat static const kAQChartGridViewPadding = 10.0f;
         {
             chartView.frame = CGRectMake(xOffset, yOffset, chartWidth, chartHeight);
             
-            if (chartView.tag == AQChartViewChartType2)
+            if (chartView.lineChartView.tag == AQChartViewChartType2)
             {
                 yOffset += chartHeight + kAQChartGridViewPadding;
                 xOffset = kAQChartGridViewPadding;

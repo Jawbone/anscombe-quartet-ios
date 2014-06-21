@@ -38,6 +38,8 @@
 		9BAF61AD19561EB200482F21 /* AQChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQChartViewController.m; sourceTree = "<group>"; };
 		9BAF61B319561EDF00482F21 /* AQBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQBaseNavigationController.h; sourceTree = "<group>"; };
 		9BAF61B419561EDF00482F21 /* AQBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQBaseNavigationController.m; sourceTree = "<group>"; };
+		9BAF61B919562B7400482F21 /* AQConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQConstants.h; sourceTree = "<group>"; };
+		9BAF61BA19562B8000482F21 /* AQColorConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQColorConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		9B769B601946C4EF00581A07 /* anscombe-quartet-ios */ = {
 			isa = PBXGroup;
 			children = (
+				9BAF61B819562B7400482F21 /* Constants */,
 				9BAF61AA19561EB200482F21 /* Controllers */,
 				9B9881841946CF3B009304E2 /* Delegate */,
 				9B769B721946C4EF00581A07 /* Images.xcassets */,
@@ -141,6 +144,15 @@
 				9BAF61B419561EDF00482F21 /* AQBaseNavigationController.m */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		9BAF61B819562B7400482F21 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				9BAF61B919562B7400482F21 /* AQConstants.h */,
+				9BAF61BA19562B8000482F21 /* AQColorConstants.h */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
