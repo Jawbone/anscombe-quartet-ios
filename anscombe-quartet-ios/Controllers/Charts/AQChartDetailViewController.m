@@ -18,6 +18,9 @@ NSString * const kAQChartDetailViewControllerCellIdentifier = @"kAQChartDetailVi
 
 @property (nonatomic, assign) AQDataModelChartType chartType;
 
+// Buttons
+- (void)closeButtonPressed:(id)sender;
+
 @end
 
 @implementation AQChartDetailViewController
@@ -40,7 +43,8 @@ NSString * const kAQChartDetailViewControllerCellIdentifier = @"kAQChartDetailVi
 {
     [super loadView];
     
-    self.title = [NSString stringWithFormat:kJBStringLabelChartDetails, self.chartType + 1];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:kAQStringLabelClose style:UIBarButtonItemStyleBordered target:self action:@selector(closeButtonPressed:)];
+    self.title = [NSString stringWithFormat:kAQStringLabelChartDetails, self.chartType + 1];
     [self.tableView registerClass:[AQDataPointTableCell class] forCellReuseIdentifier:kAQChartDetailViewControllerCellIdentifier];
 }
 
@@ -57,6 +61,13 @@ NSString * const kAQChartDetailViewControllerCellIdentifier = @"kAQChartDetailVi
     AQDataPoint *dataPoint = [[[AQDataModel sharedInstance] dataForChartType:self.chartType] objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"X: %f Y: %f", dataPoint.point.x, dataPoint.point.y];
     return cell;
+}
+
+#pragma mark - Buttons
+
+- (void)closeButtonPressed:(id)sender
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

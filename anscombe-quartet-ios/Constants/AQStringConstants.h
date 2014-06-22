@@ -10,8 +10,9 @@
 
 #pragma mark - Labels
 
-#define kJBStringLabelXAxis localize(@"label.x.axis", @"x%d")
-#define kJBStringLabelYAxis localize(@"label.y.axis", @"y%d")
-#define kJBStringLabelChart localize(@"label.chart", @"Chart %d")
-#define kJBStringLabelAnscombeQuartet localize(@"label.anscombe.quartet", @"Anscombe’s Quartet")
-#define kJBStringLabelChartDetails localize(@"label.chart.details", @"Chart %d Details")
+#define kAQStringLabelXAxis localize(@"label.x.axis", @"x%d")
+#define kAQStringLabelYAxis localize(@"label.y.axis", @"y%d")
+#define kAQStringLabelChart localize(@"label.chart", @"Chart %d")
+#define kAQStringLabelAnscombeQuartet localize(@"label.anscombe.quartet", @"Anscombe’s Quartet")
+#define kAQStringLabelChartDetails localize(@"label.chart.details", @"Chart %d Details")
+#define kAQStringLabelClose localize(@"label.close", @"Close")

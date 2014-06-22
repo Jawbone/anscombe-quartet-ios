@@ -124,7 +124,7 @@ CGFloat static const kAQCHartViewControllerLineWidth = 0.5f;
 {
     [super loadView];
     
-    self.title = kJBStringLabelAnscombeQuartet;
+    self.title = kAQStringLabelAnscombeQuartet;
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
@@ -155,9 +155,9 @@ CGFloat static const kAQCHartViewControllerLineWidth = 0.5f;
         
         chartView.tag = chartIndex;
 
-        chartView.chartLegendView.xAxisLabel.text = [NSString stringWithFormat:kJBStringLabelXAxis, chartIndex];
-        chartView.chartLegendView.yAxisLabel.text = [NSString stringWithFormat:kJBStringLabelYAxis, chartIndex];
-        chartView.titleLabel.text = [NSString stringWithFormat:kJBStringLabelChart, chartIndex + 1];
+        chartView.chartLegendView.xAxisLabel.text = [NSString stringWithFormat:kAQStringLabelXAxis, chartIndex];
+        chartView.chartLegendView.yAxisLabel.text = [NSString stringWithFormat:kAQStringLabelYAxis, chartIndex];
+        chartView.titleLabel.text = [NSString stringWithFormat:kAQStringLabelChart, chartIndex + 1];
         [mutableChartGrids addObject:chartView];
     }
     self.chartGridView.chartViews = [NSArray arrayWithArray:mutableChartGrids];
