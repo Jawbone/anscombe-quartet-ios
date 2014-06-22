@@ -19,7 +19,7 @@
 
 // Enums (AQCHartViewController)
 typedef NS_ENUM(NSInteger, AQCHartViewControllerChartType){
-    AQCHartViewControllerChartTypeRegular,
+    AQCHartViewControllerChartTypeDot,
 	AQCHartViewControllerChartTypeBestFit,
     AQCHartViewControllerChartTypeCount
 };
@@ -40,6 +40,13 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
 
 // Numerics (AQCHartViewController)
 CGFloat static const kAQCHartViewControllerDotRadius = 4.0f;
+CGFloat static const kAQCHartViewControllerLineWidth = 0.5f;
+
+@interface AQLineChartView : JBLineChartView
+
+@property (nonatomic, assign) NSUInteger chartIndex;
+
+@end
 
 @interface AQChartLegendView : UIView
 
@@ -53,7 +60,8 @@ CGFloat static const kAQCHartViewControllerDotRadius = 4.0f;
 @interface AQChartView : UIView
 
 @property (nonatomic, weak) id<AQChartViewDelegate> delegate;
-@property (nonatomic, strong) JBLineChartView *lineChartView;
+@property (nonatomic, strong) AQLineChartView *dotChartView;
+@property (nonatomic, strong) AQLineChartView *bestFitChartView;
 @property (nonatomic, strong) AQChartLegendView *chartLegendView;
 @property (nonatomic, strong) UILabel *titleLabel;
 
@@ -127,9 +135,19 @@ CGFloat static const kAQCHartViewControllerDotRadius = 4.0f;
     {
         AQChartView *chartView = [[AQChartView alloc] init];
         chartView.delegate = self;
-        chartView.lineChartView.delegate = self;
-        chartView.lineChartView.dataSource = self;
-        chartView.lineChartView.tag = chartIndex;
+        
+        chartView.dotChartView.delegate = self;
+        chartView.dotChartView.dataSource = self;
+        chartView.dotChartView.tag = AQCHartViewControllerChartTypeDot;
+        ((AQLineChartView *)chartView.dotChartView).chartIndex = chartIndex;
+        
+        chartView.bestFitChartView.delegate = self;
+        chartView.bestFitChartView.dataSource = self;
+        chartView.bestFitChartView.tag = AQCHartViewControllerChartTypeBestFit;
+        ((AQLineChartView *)chartView.bestFitChartView).chartIndex = chartIndex;
+        
+        chartView.tag = chartIndex;
+
         chartView.chartLegendView.xAxisLabel.text = [NSString stringWithFormat:kJBStringLabelXAxis, chartIndex];
         chartView.chartLegendView.yAxisLabel.text = [NSString stringWithFormat:kJBStringLabelYAxis, chartIndex];
         chartView.titleLabel.text = [NSString stringWithFormat:kJBStringLabelChart, chartIndex];
@@ -144,29 +162,43 @@ CGFloat static const kAQCHartViewControllerDotRadius = 4.0f;
 
 - (NSUInteger)numberOfLinesInLineChartView:(JBLineChartView *)lineChartView
 {
-    return AQCHartViewControllerChartTypeCount;
+    return 1;
 }
 
 - (NSUInteger)lineChartView:(JBLineChartView *)lineChartView numberOfVerticalValuesAtLineIndex:(NSUInteger)lineIndex
 {
-    return [[[AQDataModel sharedInstance] dataForChartType:lineChartView.tag] count];
+    if (lineChartView.tag == AQCHartViewControllerChartTypeDot)
+    {
+        return [[[AQDataModel sharedInstance] dataForChartType:lineChartView.tag] count];
+    }
+    else if (lineChartView.tag == AQCHartViewControllerChartTypeBestFit)
+    {
+        return AQCHartViewControllerBestFitPointCount;
+    }
+    return 0;
 }
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView colorForLineAtLineIndex:(NSUInteger)lineIndex
 {
-    if (lineIndex == AQCHartViewControllerChartTypeRegular)
+    if (lineChartView.tag == AQCHartViewControllerChartTypeDot)
     {
         return [UIColor clearColor];
     }
-    else
+    else if (lineChartView.tag == AQCHartViewControllerChartTypeBestFit)
     {
-        return [UIColor blueColor];
+        return kQAColorChartLineColor;
     }
+    return nil;
+}
+
+- (CGFloat)lineChartView:(JBLineChartView *)lineChartView widthForLineAtLineIndex:(NSUInteger)lineIndex
+{
+    return kAQCHartViewControllerLineWidth;
 }
 
 - (BOOL)lineChartView:(JBLineChartView *)lineChartView showsDotsForLineAtLineIndex:(NSUInteger)lineIndex
 {
-    return (lineIndex == AQCHartViewControllerChartTypeRegular);
+    return (lineChartView.tag == AQCHartViewControllerChartTypeDot);
 }
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView colorForDotAtHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
@@ -179,34 +211,40 @@ CGFloat static const kAQCHartViewControllerDotRadius = 4.0f;
     return kAQCHartViewControllerDotRadius;
 }
 
+- (JBLineChartViewLineStyle)lineChartView:(JBLineChartView *)lineChartView lineStyleForLineAtLineIndex:(NSUInteger)lineIndex
+{
+    return JBLineChartViewLineStyleSolid;
+}
+
+- (BOOL)lineChartView:(JBLineChartView *)lineChartView smoothLineAtLineIndex:(NSUInteger)lineIndex
+{
+    return NO;
+}
+
 #pragma mark - JBLineChartViewDelegate
 
 - (CGFloat)lineChartView:(JBLineChartView *)lineChartView verticalValueForHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
 {
-    NSArray *data = [[AQDataModel sharedInstance] dataForChartType:lineChartView.tag];
+    NSArray *data = [[AQDataModel sharedInstance] dataForChartType:((AQLineChartView *)lineChartView).chartIndex];
     
-    if (lineIndex == AQCHartViewControllerChartTypeRegular)
+    if (lineChartView.tag == AQCHartViewControllerChartTypeDot)
     {
         AQDataPoint *dataPoint = (AQDataPoint *)[data objectAtIndex:horizontalIndex];
         return [dataPoint point].y;
     }
-    else
+    else if (lineChartView.tag == AQCHartViewControllerChartTypeBestFit)
     {
-
         AQDataPoint *firstPoint = (AQDataPoint *)[data firstObject];
         AQDataPoint *lastPoint = (AQDataPoint *)[data lastObject];
-
-        if (horizontalIndex == 0)
+        
+        if (horizontalIndex == AQCHartViewControllerBestFitPoint1)
         {
             return firstPoint.point.y;
         }
-        else if (horizontalIndex == [data count] - 1)
+        else if (horizontalIndex == AQCHartViewControllerBestFitPoint2)
         {
             return lastPoint.point.y;
         }
-        
-        CGFloat increment = ((fabsf(lastPoint.point.y - firstPoint.point.y)) / [data count]);
-        return firstPoint.point.y + (increment * horizontalIndex);
     }
     return 0.0f;
 }
@@ -218,6 +256,12 @@ CGFloat static const kAQCHartViewControllerDotRadius = 4.0f;
     AQChartDetailViewController *detailViewController = [[AQChartDetailViewController alloc] init];
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
+
+@end
+
+@implementation AQLineChartView
+
+// Nothing to do here
 
 @end
 
@@ -312,10 +356,14 @@ CGFloat static const kAQCHartViewControllerDotRadius = 4.0f;
         _titleLabel.font = [UIFont systemFontOfSize:10.0f];
         [self addSubview:_titleLabel];
         
-        _lineChartView = [[JBLineChartView alloc] init];
-        _lineChartView.backgroundColor = kAQColorBaseBackgroundColor;
-        [self addSubview:_lineChartView];
-        
+        _bestFitChartView = [[AQLineChartView alloc] init];
+        _bestFitChartView.backgroundColor = kAQColorBaseBackgroundColor;
+        [self addSubview:_bestFitChartView];
+
+        _dotChartView = [[AQLineChartView alloc] init];
+        _dotChartView.backgroundColor = [UIColor clearColor];
+        [self addSubview:_dotChartView];
+
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chartViewTapped:)];
         [self addGestureRecognizer:tapGestureRecognizer];
     }
@@ -332,8 +380,12 @@ CGFloat static const kAQCHartViewControllerDotRadius = 4.0f;
     self.titleLabel.frame = CGRectMake(kAQChartLegendViewMarginSize, self.bounds.origin.y, self.bounds.size.width - kAQChartLegendViewMarginSize, titleSize.height);
 
     self.chartLegendView.frame = self.bounds;
-    self.lineChartView.frame = CGRectMake(kAQChartLegendViewMarginSize, self.bounds.origin.y + kAQChartLegendViewTitleHeight, self.bounds.size.width - kAQChartLegendViewMarginSize, self.bounds.size.height - kAQChartLegendViewMarginSize - kAQChartLegendViewTitleHeight);
-    [self.lineChartView reloadData]; // redraw charts
+    
+    self.bestFitChartView.frame = CGRectMake(kAQChartLegendViewMarginSize, self.bounds.origin.y + kAQChartLegendViewTitleHeight, self.bounds.size.width - kAQChartLegendViewMarginSize, self.bounds.size.height - kAQChartLegendViewMarginSize - kAQChartLegendViewTitleHeight);
+    [self.bestFitChartView reloadData];
+
+    self.dotChartView.frame = CGRectMake(kAQChartLegendViewMarginSize, self.bounds.origin.y + kAQChartLegendViewTitleHeight, self.bounds.size.width - kAQChartLegendViewMarginSize, self.bounds.size.height - kAQChartLegendViewMarginSize - kAQChartLegendViewTitleHeight);
+    [self.dotChartView reloadData];
 }
 
 #pragma mark - Gestures
@@ -370,7 +422,8 @@ CGFloat static const kAQCHartViewControllerDotRadius = 4.0f;
     {
         if ([chartView isKindOfClass:[AQChartView class]])
         {
-            [chartView.lineChartView reloadData];
+            [chartView.bestFitChartView reloadData];
+            [chartView.dotChartView reloadData];
         }
     }
 }
@@ -396,7 +449,7 @@ CGFloat static const kAQCHartViewControllerDotRadius = 4.0f;
         {
             chartView.frame = CGRectMake(xOffset, yOffset, chartWidth, chartHeight);
             
-            if (chartView.lineChartView.tag == AQDataModelChartType2)
+            if (chartView.tag == AQDataModelChartType2)
             {
                 yOffset += chartHeight + kAQChartGridViewPadding;
                 xOffset = kAQChartGridViewPadding;
