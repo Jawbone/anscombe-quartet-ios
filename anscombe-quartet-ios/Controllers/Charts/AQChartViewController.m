@@ -14,21 +14,19 @@
 // Controllers
 #import "AQChartDetailViewController.h"
 
-// Enums
-typedef NS_ENUM(NSInteger, AQChartViewChartType){
-    AQChartViewChartType1,
-	AQChartViewChartType2,
-    AQChartViewChartType3,
-    AQChartViewChartType4,
-    AQChartViewChartTypeCount
-};
+// Model
+#import "AQDataModel.h"
 
 // Numerics (AQChartLegendView)
 CGFloat static const kAQChartLegendViewMarginSize = 15.0f;
 CGFloat static const kAQChartLegendViewSeparatorWidth = 0.25f;
+CGFloat static const kAQChartLegendViewTitleHeight = 40.0f;
 
 // Numerics (AQChartGridView)
 CGFloat static const kAQChartGridViewPadding = 5.0f;
+
+// Numerics (AQCHartViewController)
+CGFloat static const kAQCHartViewControllerDotRadius = 4.0f;
 
 @interface AQChartLegendView : UIView
 
@@ -112,7 +110,7 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
     self.view = self.chartGridView;
     
     NSMutableArray *mutableChartGrids = [[NSMutableArray alloc] init];
-    for (int chartIndex=0; chartIndex<AQChartViewChartTypeCount; chartIndex++)
+    for (int chartIndex=0; chartIndex<AQDataModelChartTypeCount; chartIndex++)
     {
         AQChartView *chartView = [[AQChartView alloc] init];
         chartView.delegate = self;
@@ -133,19 +131,40 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
 
 - (NSUInteger)numberOfLinesInLineChartView:(JBLineChartView *)lineChartView
 {
-    return 0;
+    return 1;
 }
 
 - (NSUInteger)lineChartView:(JBLineChartView *)lineChartView numberOfVerticalValuesAtLineIndex:(NSUInteger)lineIndex
 {
-    return 0;
+    return [[[AQDataModel sharedInstance] dataForChartType:lineChartView.tag] count];
+}
+
+- (UIColor *)lineChartView:(JBLineChartView *)lineChartView colorForLineAtLineIndex:(NSUInteger)lineIndex
+{
+    return [UIColor clearColor];
+}
+
+- (BOOL)lineChartView:(JBLineChartView *)lineChartView showsDotsForLineAtLineIndex:(NSUInteger)lineIndex
+{
+    return YES;
+}
+
+- (UIColor *)lineChartView:(JBLineChartView *)lineChartView colorForDotAtHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
+{
+    return kQAColorChartDotColor;
+}
+
+- (CGFloat)lineChartView:(JBLineChartView *)lineChartView dotRadiusForLineAtLineIndex:(NSUInteger)lineIndex
+{
+    return kAQCHartViewControllerDotRadius;
 }
 
 #pragma mark - JBLineChartViewDelegate
 
 - (CGFloat)lineChartView:(JBLineChartView *)lineChartView verticalValueForHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
 {
-    return 0;
+    AQDataPoint *dataPoint = (AQDataPoint *)[[[AQDataModel sharedInstance] dataForChartType:lineChartView.tag] objectAtIndex:horizontalIndex];
+    return [dataPoint point].y;
 }
 
 #pragma mark - AQChartViewDelegate
@@ -269,7 +288,8 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
     self.titleLabel.frame = CGRectMake(kAQChartLegendViewMarginSize, self.bounds.origin.y, self.bounds.size.width - kAQChartLegendViewMarginSize, titleSize.height);
 
     self.chartLegendView.frame = self.bounds;
-    self.lineChartView.frame = CGRectMake(kAQChartLegendViewMarginSize, self.bounds.origin.y + CGRectGetMaxY(self.titleLabel.frame), self.bounds.size.width - kAQChartLegendViewMarginSize, self.bounds.size.height - kAQChartLegendViewMarginSize - CGRectGetMaxY(self.titleLabel.frame));
+    self.lineChartView.frame = CGRectMake(kAQChartLegendViewMarginSize, self.bounds.origin.y + kAQChartLegendViewTitleHeight, self.bounds.size.width - kAQChartLegendViewMarginSize, self.bounds.size.height - kAQChartLegendViewMarginSize - kAQChartLegendViewTitleHeight);
+    [self.lineChartView reloadData]; // redraw charts
 }
 
 #pragma mark - Gestures
@@ -309,8 +329,6 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
             [chartView.lineChartView reloadData];
         }
     }
-    
-    [self setNeedsLayout];
 }
 
 #pragma mark - Layout
@@ -334,7 +352,7 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
         {
             chartView.frame = CGRectMake(xOffset, yOffset, chartWidth, chartHeight);
             
-            if (chartView.lineChartView.tag == AQChartViewChartType2)
+            if (chartView.lineChartView.tag == AQDataModelChartType2)
             {
                 yOffset += chartHeight + kAQChartGridViewPadding;
                 xOffset = kAQChartGridViewPadding;
@@ -345,6 +363,8 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
             }
         }
     }
+    
+    [self reloadData];
 }
 
 #pragma mark - Setters

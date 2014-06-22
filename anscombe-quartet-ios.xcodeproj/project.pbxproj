@@ -17,6 +17,7 @@
 		9BAF61AE19561EB200482F21 /* AQChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF61AD19561EB200482F21 /* AQChartViewController.m */; };
 		9BAF61B519561EDF00482F21 /* AQBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF61B419561EDF00482F21 /* AQBaseNavigationController.m */; };
 		9BF39FC01956431B00777DB9 /* AQChartDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF39FBF1956431B00777DB9 /* AQChartDetailViewController.m */; };
+		9BF39FC71956515700777DB9 /* AQDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF39FC61956515700777DB9 /* AQDataModel.m */; };
 		AFBA96371DE84A2184837E81 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B973261D2C24131AD99E38D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,8 @@
 		9BF39FBD19563C2400777DB9 /* AQStringConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQStringConstants.h; sourceTree = "<group>"; };
 		9BF39FBE1956431B00777DB9 /* AQChartDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQChartDetailViewController.h; sourceTree = "<group>"; };
 		9BF39FBF1956431B00777DB9 /* AQChartDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQChartDetailViewController.m; sourceTree = "<group>"; };
+		9BF39FC51956515700777DB9 /* AQDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQDataModel.h; sourceTree = "<group>"; };
+		9BF39FC61956515700777DB9 /* AQDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQDataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,7 @@
 				9BAF61AA19561EB200482F21 /* Controllers */,
 				9B9881841946CF3B009304E2 /* Delegate */,
 				9B769B721946C4EF00581A07 /* Images.xcassets */,
+				9BF39FC41956515700777DB9 /* Model */,
 				9B769B611946C4EF00581A07 /* Supporting Files */,
 			);
 			path = "anscombe-quartet-ios";
@@ -160,6 +164,15 @@
 				9BF39FBD19563C2400777DB9 /* AQStringConstants.h */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		9BF39FC41956515700777DB9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BF39FC51956515700777DB9 /* AQDataModel.h */,
+				9BF39FC61956515700777DB9 /* AQDataModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BF39FC01956431B00777DB9 /* AQChartDetailViewController.m in Sources */,
+				9BF39FC71956515700777DB9 /* AQDataModel.m in Sources */,
 				9BAF61B519561EDF00482F21 /* AQBaseNavigationController.m in Sources */,
 				9B9881871946CF3B009304E2 /* AppDelegate.m in Sources */,
 				9BAF61AE19561EB200482F21 /* AQChartViewController.m in Sources */,
