@@ -44,22 +44,27 @@ NSString * const kAQChartDetailViewControllerCellIdentifier = @"kAQChartDetailVi
     [super loadView];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:kAQStringLabelClose style:UIBarButtonItemStyleBordered target:self action:@selector(closeButtonPressed:)];
+    
     self.title = [NSString stringWithFormat:kAQStringLabelChartDetails, self.chartType + 1];
+    
     [self.tableView registerClass:[AQDataPointTableCell class] forCellReuseIdentifier:kAQChartDetailViewControllerCellIdentifier];
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[AQDataModel sharedInstance] dataForChartType:self.chartType] count];
+    return [[[AQDataModel sharedInstance] dataForChartType:self.chartType sorted:NO] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AQDataPointTableCell *cell = [tableView dequeueReusableCellWithIdentifier:kAQChartDetailViewControllerCellIdentifier forIndexPath:indexPath];
-    AQDataPoint *dataPoint = [[[AQDataModel sharedInstance] dataForChartType:self.chartType] objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"X: %f Y: %f", dataPoint.point.x, dataPoint.point.y];
+    AQDataPoint *dataPoint = [[[AQDataModel sharedInstance] dataForChartType:self.chartType sorted:NO] objectAtIndex:indexPath.row];
+    cell.leftLabel.text = [NSString stringWithFormat:@"%.1f", dataPoint.point.x];
+    cell.rightLabel.text = [NSString stringWithFormat:@"%.1f", dataPoint.point.y];
+    cell.backgroundColor = indexPath.row % 2 == 0 ? kQAColorDetailCellBackgroundColor : [UIColor whiteColor];
     return cell;
 }
 

@@ -29,6 +29,7 @@ typedef NS_ENUM(NSInteger, AQDataModelChartType){
 
 + (AQDataModel *)sharedInstance;
 
-- (NSArray *)dataForChartType:(AQDataModelChartType)chartType;
+- (NSArray *)dataForChartType:(AQDataModelChartType)chartType; // default sorted
+- (NSArray *)dataForChartType:(AQDataModelChartType)chartType sorted:(BOOL)sorted;
 
 @end

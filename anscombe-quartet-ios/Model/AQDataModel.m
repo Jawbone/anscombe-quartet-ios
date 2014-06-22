@@ -39,25 +39,45 @@
 
 #pragma mark - Getters
 
-- (NSArray *)dataForChartType:(AQDataModelChartType)chartType
+- (NSArray *)dataForChartType:(AQDataModelChartType)chartType sorted:(BOOL)sorted
 {
+    NSArray *dataArray = nil;
+    
     switch (chartType) {
         case AQDataModelChartType1:
-            return self.chartData1;
+            dataArray = self.chartData1;
             break;
         case AQDataModelChartType2:
-            return self.chartData2;
+            dataArray = self.chartData2;
             break;
         case AQDataModelChartType3:
-            return self.chartData3;
+            dataArray = self.chartData3;
             break;
         case AQDataModelChartType4:
-            return self.chartData4;
+            dataArray = self.chartData4;
             break;
         default:
             break;
     }
-    return nil;
+
+    if (sorted)
+    {
+        dataArray = [dataArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            AQDataPoint *dataPoint1 = (AQDataPoint *)obj1;
+            AQDataPoint *dataPoint2 = (AQDataPoint *)obj2;
+            if (dataPoint1.point.x > dataPoint2.point.x)
+            {
+                return NSOrderedDescending;
+            }
+            return NSOrderedAscending;
+        }];
+    }
+    return dataArray;
+}
+
+- (NSArray *)dataForChartType:(AQDataModelChartType)chartType
+{
+    return [self dataForChartType:chartType sorted:YES];
 }
 
 - (NSArray *)chartData1
@@ -76,16 +96,6 @@
                        [[AQDataPoint alloc] initWithDataPoint:CGPointMake(7.0f, 4.82f)],
                        [[AQDataPoint alloc] initWithDataPoint:CGPointMake(5.0f, 5.68f)],
                        ];
-        
-        _chartData1 = [_chartData1 sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            AQDataPoint *dataPoint1 = (AQDataPoint *)obj1;
-            AQDataPoint *dataPoint2 = (AQDataPoint *)obj2;
-            if (dataPoint1.point.x > dataPoint2.point.x)
-            {
-                return NSOrderedDescending;
-            }
-            return NSOrderedAscending;
-        }];
     }
     return _chartData1;
 }
@@ -106,16 +116,6 @@
                         [[AQDataPoint alloc] initWithDataPoint:CGPointMake(7.0f, 7.26f)],
                         [[AQDataPoint alloc] initWithDataPoint:CGPointMake(10.0f, 9.14f)],
                         ];
-        
-        _chartData2 = [_chartData2 sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            AQDataPoint *dataPoint1 = (AQDataPoint *)obj1;
-            AQDataPoint *dataPoint2 = (AQDataPoint *)obj2;
-            if (dataPoint1.point.x > dataPoint2.point.x)
-            {
-                return NSOrderedDescending;
-            }
-            return NSOrderedAscending;
-        }];
     }
     return _chartData2;
 }
@@ -136,16 +136,6 @@
                         [[AQDataPoint alloc] initWithDataPoint:CGPointMake(7.0f, 6.42f)],
                         [[AQDataPoint alloc] initWithDataPoint:CGPointMake(10.0f, 7.46f)],
                         ];
-        
-        _chartData3 = [_chartData3 sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            AQDataPoint *dataPoint1 = (AQDataPoint *)obj1;
-            AQDataPoint *dataPoint2 = (AQDataPoint *)obj2;
-            if (dataPoint1.point.x > dataPoint2.point.x)
-            {
-                return NSOrderedDescending;
-            }
-            return NSOrderedAscending;
-        }];
     }
     return _chartData3;
 }
@@ -166,16 +156,6 @@
                         [[AQDataPoint alloc] initWithDataPoint:CGPointMake(8.0f, 7.91f)],
                         [[AQDataPoint alloc] initWithDataPoint:CGPointMake(8.0f, 6.58f)],
                         ];
-        
-        _chartData4 = [_chartData4 sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            AQDataPoint *dataPoint1 = (AQDataPoint *)obj1;
-            AQDataPoint *dataPoint2 = (AQDataPoint *)obj2;
-            if (dataPoint1.point.x > dataPoint2.point.x)
-            {
-                return NSOrderedDescending;
-            }
-            return NSOrderedAscending;
-        }];
     }
     return _chartData4;
 }

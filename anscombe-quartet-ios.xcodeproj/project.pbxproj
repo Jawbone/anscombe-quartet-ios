@@ -17,6 +17,7 @@
 		9BAF61AE19561EB200482F21 /* AQChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF61AD19561EB200482F21 /* AQChartViewController.m */; };
 		9BAF61B519561EDF00482F21 /* AQBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF61B419561EDF00482F21 /* AQBaseNavigationController.m */; };
 		9BEDEC5F195684A300044EAB /* AQDataPointTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDEC5E195684A300044EAB /* AQDataPointTableCell.m */; };
+		9BEDEC6619568B9800044EAB /* AQDataPointHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BEDEC6519568B9800044EAB /* AQDataPointHeaderView.m */; };
 		9BF39FC01956431B00777DB9 /* AQChartDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF39FBF1956431B00777DB9 /* AQChartDetailViewController.m */; };
 		9BF39FC71956515700777DB9 /* AQDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF39FC61956515700777DB9 /* AQDataModel.m */; };
 		AFBA96371DE84A2184837E81 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B973261D2C24131AD99E38D /* libPods.a */; };
@@ -45,6 +46,8 @@
 		9BAF61BA19562B8000482F21 /* AQColorConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQColorConstants.h; sourceTree = "<group>"; };
 		9BEDEC5D195684A300044EAB /* AQDataPointTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQDataPointTableCell.h; sourceTree = "<group>"; };
 		9BEDEC5E195684A300044EAB /* AQDataPointTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQDataPointTableCell.m; sourceTree = "<group>"; };
+		9BEDEC6419568B9800044EAB /* AQDataPointHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQDataPointHeaderView.h; sourceTree = "<group>"; };
+		9BEDEC6519568B9800044EAB /* AQDataPointHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQDataPointHeaderView.m; sourceTree = "<group>"; };
 		9BF39FBD19563C2400777DB9 /* AQStringConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQStringConstants.h; sourceTree = "<group>"; };
 		9BF39FBE1956431B00777DB9 /* AQChartDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQChartDetailViewController.h; sourceTree = "<group>"; };
 		9BF39FBF1956431B00777DB9 /* AQChartDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQChartDetailViewController.m; sourceTree = "<group>"; };
@@ -174,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				9BEDEC5C195684A300044EAB /* Cells */,
+				9BEDEC6319568B9800044EAB /* Headers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +189,15 @@
 				9BEDEC5E195684A300044EAB /* AQDataPointTableCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		9BEDEC6319568B9800044EAB /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				9BEDEC6419568B9800044EAB /* AQDataPointHeaderView.h */,
+				9BEDEC6519568B9800044EAB /* AQDataPointHeaderView.m */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		9BF39FC41956515700777DB9 /* Model */ = {
@@ -299,6 +312,7 @@
 				9BF39FC01956431B00777DB9 /* AQChartDetailViewController.m in Sources */,
 				9BF39FC71956515700777DB9 /* AQDataModel.m in Sources */,
 				9BAF61B519561EDF00482F21 /* AQBaseNavigationController.m in Sources */,
+				9BEDEC6619568B9800044EAB /* AQDataPointHeaderView.m in Sources */,
 				9B9881871946CF3B009304E2 /* AppDelegate.m in Sources */,
 				9BAF61AE19561EB200482F21 /* AQChartViewController.m in Sources */,
 				9B769B671946C4EF00581A07 /* main.m in Sources */,
