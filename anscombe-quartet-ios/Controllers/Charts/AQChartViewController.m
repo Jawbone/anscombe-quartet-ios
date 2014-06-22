@@ -157,7 +157,7 @@ CGFloat static const kAQCHartViewControllerLineWidth = 0.5f;
 
         chartView.chartLegendView.xAxisLabel.text = [NSString stringWithFormat:kAQStringLabelXAxis, chartIndex];
         chartView.chartLegendView.yAxisLabel.text = [NSString stringWithFormat:kAQStringLabelYAxis, chartIndex];
-        chartView.titleLabel.text = [NSString stringWithFormat:kAQStringLabelChart, chartIndex + 1];
+        chartView.titleLabel.text = [NSString stringWithFormat:kAQStringLabelChart, chartIndex];
         [mutableChartGrids addObject:chartView];
     }
     self.chartGridView.chartViews = [NSArray arrayWithArray:mutableChartGrids];
@@ -361,7 +361,7 @@ CGFloat static const kAQCHartViewControllerLineWidth = 0.5f;
         _titleLabel.backgroundColor = [UIColor clearColor];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.textColor = kAQColorChartTitleColor;
-        _titleLabel.font = [UIFont systemFontOfSize:10.0f];
+        _titleLabel.font = [UIFont systemFontOfSize:12.0f];
         [self addSubview:_titleLabel];
         
         _bestFitChartView = [[AQLineChartView alloc] init];

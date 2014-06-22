@@ -10,9 +10,13 @@
 
 // Views
 #import "AQDataPointTableCell.h"
+#import "AQDataPointHeaderView.h"
 
 // Strings
 NSString * const kAQChartDetailViewControllerCellIdentifier = @"kAQChartDetailViewControllerCellIdentifier";
+
+// Numerics
+CGFloat static const kAQChartDetailViewControllerHeaderHeight = 50.0f;
 
 @interface AQChartDetailViewController ()
 
@@ -45,10 +49,15 @@ NSString * const kAQChartDetailViewControllerCellIdentifier = @"kAQChartDetailVi
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:kAQStringLabelClose style:UIBarButtonItemStyleBordered target:self action:@selector(closeButtonPressed:)];
     
-    self.title = [NSString stringWithFormat:kAQStringLabelChartDetails, self.chartType + 1];
+    self.title = [NSString stringWithFormat:kAQStringLabelChartDetails, self.chartType];
     
     [self.tableView registerClass:[AQDataPointTableCell class] forCellReuseIdentifier:kAQChartDetailViewControllerCellIdentifier];
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    
+    AQDataPointHeaderView *header = [[AQDataPointHeaderView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, kAQChartDetailViewControllerHeaderHeight)];
+    header.leftLabel.text = [NSString stringWithFormat:kAQStringLabelX, self.chartType];
+    header.rightLabel.text = [NSString stringWithFormat:kAQStringLabelY, self.chartType];
+    [self.tableView setTableHeaderView:header];
 }
 
 #pragma mark - UITableViewDataSource

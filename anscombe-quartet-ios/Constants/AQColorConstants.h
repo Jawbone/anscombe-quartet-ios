@@ -16,5 +16,6 @@
 #define kAQColorChartTitleColor UIColorFromHex(0x000000)
 #define kQAColorChartDotColor UIColorFromHex(0xe23100)
 #define kQAColorChartLineColor [UIColor colorWithRed:0.029f green:0.615f blue:0.843f alpha:0.5f]
-#define kQAColorDetailCellTextColor UIColorFromHex(0x000000)
+#define kQAColorDetailCellTextColor UIColorFromHex(0x242424)
 #define kQAColorDetailCellBackgroundColor UIColorFromHex(0xe0e0e0)
+#define kQAColorDetailHeaderTextColor UIColorFromHex(0x000000)

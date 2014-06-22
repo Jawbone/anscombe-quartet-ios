@@ -16,3 +16,5 @@
 #define kAQStringLabelAnscombeQuartet localize(@"label.anscombe.quartet", @"Anscombe’s Quartet")
 #define kAQStringLabelChartDetails localize(@"label.chart.details", @"Chart %d Details")
 #define kAQStringLabelClose localize(@"label.close", @"Close")
+#define kAQStringLabelX localize(@"label.x", @"X%d")
+#define kAQStringLabelY localize(@"label.y", @"Y%d")

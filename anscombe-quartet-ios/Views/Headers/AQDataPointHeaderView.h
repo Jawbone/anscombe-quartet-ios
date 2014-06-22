@@ -10,4 +10,7 @@
 
 @interface AQDataPointHeaderView : UIView
 
+@property (nonatomic, readonly) UILabel *leftLabel;
+@property (nonatomic, readonly) UILabel *rightLabel;
+
 @end
