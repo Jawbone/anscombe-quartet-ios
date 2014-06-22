@@ -9,7 +9,7 @@
 #import "AQChartViewController.h"
 
 // Views
-#import <JBLineChartView.h>
+#import "AQLineChartView.h"
 
 // Controllers
 #import "AQChartDetailViewController.h"
@@ -42,12 +42,6 @@ CGFloat static const kAQChartGridViewPadding = 5.0f;
 // Numerics (AQCHartViewController)
 CGFloat static const kAQCHartViewControllerDotRadius = 4.0f;
 CGFloat static const kAQCHartViewControllerLineWidth = 0.5f;
-
-@interface AQLineChartView : JBLineChartView
-
-@property (nonatomic, assign) NSUInteger chartIndex;
-
-@end
 
 @interface AQChartLegendView : UIView
 
@@ -264,12 +258,6 @@ CGFloat static const kAQCHartViewControllerLineWidth = 0.5f;
     AQBaseNavigationController *navigationController = [[AQBaseNavigationController alloc] initWithRootViewController:detailViewController];
     [self.navigationController presentViewController:navigationController animated:YES completion:nil];
 }
-
-@end
-
-@implementation AQLineChartView
-
-// Nothing to do here
 
 @end
 

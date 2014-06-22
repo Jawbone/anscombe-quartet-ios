@@ -13,6 +13,7 @@
 		9B769B651946C4EF00581A07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B769B631946C4EF00581A07 /* InfoPlist.strings */; };
 		9B769B671946C4EF00581A07 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B769B661946C4EF00581A07 /* main.m */; };
 		9B769B731946C4EF00581A07 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B769B721946C4EF00581A07 /* Images.xcassets */; };
+		9B76ED0B195692DB0056D7E9 /* AQLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B76ED0A195692DB0056D7E9 /* AQLineChartView.m */; };
 		9B9881871946CF3B009304E2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B9881861946CF3B009304E2 /* AppDelegate.m */; };
 		9BAF61AE19561EB200482F21 /* AQChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF61AD19561EB200482F21 /* AQChartViewController.m */; };
 		9BAF61B519561EDF00482F21 /* AQBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF61B419561EDF00482F21 /* AQBaseNavigationController.m */; };
@@ -36,6 +37,8 @@
 		9B769B681946C4EF00581A07 /* anscombe-quartet-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "anscombe-quartet-ios-Prefix.pch"; sourceTree = "<group>"; };
 		9B769B721946C4EF00581A07 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9B769B791946C4EF00581A07 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		9B76ED09195692DB0056D7E9 /* AQLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQLineChartView.h; sourceTree = "<group>"; };
+		9B76ED0A195692DB0056D7E9 /* AQLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AQLineChartView.m; sourceTree = "<group>"; };
 		9B9881851946CF3B009304E2 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9B9881861946CF3B009304E2 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9BAF61AC19561EB200482F21 /* AQChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQChartViewController.h; sourceTree = "<group>"; };
@@ -178,6 +181,8 @@
 			children = (
 				9BEDEC5C195684A300044EAB /* Cells */,
 				9BEDEC6319568B9800044EAB /* Headers */,
+				9B76ED09195692DB0056D7E9 /* AQLineChartView.h */,
+				9B76ED0A195692DB0056D7E9 /* AQLineChartView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				9BAF61B519561EDF00482F21 /* AQBaseNavigationController.m in Sources */,
 				9BEDEC6619568B9800044EAB /* AQDataPointHeaderView.m in Sources */,
 				9B9881871946CF3B009304E2 /* AppDelegate.m in Sources */,
+				9B76ED0B195692DB0056D7E9 /* AQLineChartView.m in Sources */,
 				9BAF61AE19561EB200482F21 /* AQChartViewController.m in Sources */,
 				9B769B671946C4EF00581A07 /* main.m in Sources */,
 			);
