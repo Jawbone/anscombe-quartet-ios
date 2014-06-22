@@ -17,6 +17,19 @@
 // Model
 #import "AQDataModel.h"
 
+// Enums (AQCHartViewController)
+typedef NS_ENUM(NSInteger, AQCHartViewControllerChartType){
+    AQCHartViewControllerChartTypeRegular,
+	AQCHartViewControllerChartTypeBestFit,
+    AQCHartViewControllerChartTypeCount
+};
+
+typedef NS_ENUM(NSInteger, AQCHartViewControllerBestFitPoint){
+    AQCHartViewControllerBestFitPoint1,
+	AQCHartViewControllerBestFitPoint2,
+    AQCHartViewControllerBestFitPointCount
+};
+
 // Numerics (AQChartLegendView)
 CGFloat static const kAQChartLegendViewMarginSize = 15.0f;
 CGFloat static const kAQChartLegendViewSeparatorWidth = 0.25f;
@@ -131,7 +144,7 @@ CGFloat static const kAQCHartViewControllerDotRadius = 4.0f;
 
 - (NSUInteger)numberOfLinesInLineChartView:(JBLineChartView *)lineChartView
 {
-    return 1;
+    return AQCHartViewControllerChartTypeCount;
 }
 
 - (NSUInteger)lineChartView:(JBLineChartView *)lineChartView numberOfVerticalValuesAtLineIndex:(NSUInteger)lineIndex
@@ -141,12 +154,19 @@ CGFloat static const kAQCHartViewControllerDotRadius = 4.0f;
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView colorForLineAtLineIndex:(NSUInteger)lineIndex
 {
-    return [UIColor clearColor];
+    if (lineIndex == AQCHartViewControllerChartTypeRegular)
+    {
+        return [UIColor clearColor];
+    }
+    else
+    {
+        return [UIColor blueColor];
+    }
 }
 
 - (BOOL)lineChartView:(JBLineChartView *)lineChartView showsDotsForLineAtLineIndex:(NSUInteger)lineIndex
 {
-    return YES;
+    return (lineIndex == AQCHartViewControllerChartTypeRegular);
 }
 
 - (UIColor *)lineChartView:(JBLineChartView *)lineChartView colorForDotAtHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
@@ -163,8 +183,32 @@ CGFloat static const kAQCHartViewControllerDotRadius = 4.0f;
 
 - (CGFloat)lineChartView:(JBLineChartView *)lineChartView verticalValueForHorizontalIndex:(NSUInteger)horizontalIndex atLineIndex:(NSUInteger)lineIndex
 {
-    AQDataPoint *dataPoint = (AQDataPoint *)[[[AQDataModel sharedInstance] dataForChartType:lineChartView.tag] objectAtIndex:horizontalIndex];
-    return [dataPoint point].y;
+    NSArray *data = [[AQDataModel sharedInstance] dataForChartType:lineChartView.tag];
+    
+    if (lineIndex == AQCHartViewControllerChartTypeRegular)
+    {
+        AQDataPoint *dataPoint = (AQDataPoint *)[data objectAtIndex:horizontalIndex];
+        return [dataPoint point].y;
+    }
+    else
+    {
+
+        AQDataPoint *firstPoint = (AQDataPoint *)[data firstObject];
+        AQDataPoint *lastPoint = (AQDataPoint *)[data lastObject];
+
+        if (horizontalIndex == 0)
+        {
+            return firstPoint.point.y;
+        }
+        else if (horizontalIndex == [data count] - 1)
+        {
+            return lastPoint.point.y;
+        }
+        
+        CGFloat increment = ((fabsf(lastPoint.point.y - firstPoint.point.y)) / [data count]);
+        return firstPoint.point.y + (increment * horizontalIndex);
+    }
+    return 0.0f;
 }
 
 #pragma mark - AQChartViewDelegate
