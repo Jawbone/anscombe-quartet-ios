@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AQChartDetailViewController : UIViewController
+// Model
+#import "AQDataModel.h"
+
+@interface AQChartDetailViewController : UITableViewController
+
+- (id)initWithChartType:(AQDataModelChartType)chartType;
 
 @end

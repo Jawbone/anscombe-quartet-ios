@@ -13,6 +13,7 @@
 
 // Controllers
 #import "AQChartDetailViewController.h"
+#import "AQBaseNavigationController.h"
 
 // Model
 #import "AQDataModel.h"
@@ -139,18 +140,24 @@ CGFloat static const kAQCHartViewControllerLineWidth = 0.5f;
         chartView.dotChartView.delegate = self;
         chartView.dotChartView.dataSource = self;
         chartView.dotChartView.tag = AQCHartViewControllerChartTypeDot;
+        chartView.dotChartView.userInteractionEnabled = NO;
+        chartView.dotChartView.showsLineSelection = NO;
+        chartView.dotChartView.showsVerticalSelection = NO;
         ((AQLineChartView *)chartView.dotChartView).chartIndex = chartIndex;
         
         chartView.bestFitChartView.delegate = self;
         chartView.bestFitChartView.dataSource = self;
         chartView.bestFitChartView.tag = AQCHartViewControllerChartTypeBestFit;
+        chartView.bestFitChartView.userInteractionEnabled = NO;
+        chartView.bestFitChartView.showsLineSelection = NO;
+        chartView.bestFitChartView.showsVerticalSelection = NO;
         ((AQLineChartView *)chartView.bestFitChartView).chartIndex = chartIndex;
         
         chartView.tag = chartIndex;
 
         chartView.chartLegendView.xAxisLabel.text = [NSString stringWithFormat:kJBStringLabelXAxis, chartIndex];
         chartView.chartLegendView.yAxisLabel.text = [NSString stringWithFormat:kJBStringLabelYAxis, chartIndex];
-        chartView.titleLabel.text = [NSString stringWithFormat:kJBStringLabelChart, chartIndex];
+        chartView.titleLabel.text = [NSString stringWithFormat:kJBStringLabelChart, chartIndex + 1];
         [mutableChartGrids addObject:chartView];
     }
     self.chartGridView.chartViews = [NSArray arrayWithArray:mutableChartGrids];
@@ -253,8 +260,9 @@ CGFloat static const kAQCHartViewControllerLineWidth = 0.5f;
 
 - (void)didSelectChartView:(AQChartView *)chartView
 {
-    AQChartDetailViewController *detailViewController = [[AQChartDetailViewController alloc] init];
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    AQChartDetailViewController *detailViewController = [[AQChartDetailViewController alloc] initWithChartType:chartView.dotChartView.chartIndex];
+    AQBaseNavigationController *navigationController = [[AQBaseNavigationController alloc] initWithRootViewController:detailViewController];
+    [self.navigationController presentViewController:navigationController animated:YES completion:nil];
 }
 
 @end
