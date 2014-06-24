@@ -1,7 +1,7 @@
 # Anscombe's Quartet
 <br/>
 <p align="center">	
-	<img src="https://raw.githubusercontent.com/Jawbone/anscombe-quartet-ios/master/Screenshots/main.png">
+	<img src="https://raw.githubusercontent.com/Jawbone/anscombe-quartet-ios/master/Screenshots/main.jpg">
 </p>
 
 Demo project showcasing the use of <a href="https://github.com/Jawbone/JBChartView" targer="_blank">JBChartView</a> in the classic data visualization example known as <a href="http://en.wikipedia.org/wiki/Anscombe's_quartet">Anscombe's Quartet</a>. 
